@@ -1,12 +1,14 @@
 # galaxyline.nvim
 
+_JUSTIN NOTE_ this fork has a bug fix for LSP diagnostics. I think upstream is no longer maintained.
+
 galaxyline is a light-weight and **Super Fast** statusline plugin. Galaxyline
 componentizes Vim's statusline by having a provider for each text area.
 
 This means you can use the api provided by galaxyline to create the statusline
 that you want, easily.
 
-**Requires neovim 0.5.0+**
+**Requires neovim 0.6.1+**
 
 ## Install
 * vim-plug
