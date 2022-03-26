@@ -19,7 +19,7 @@ local function get_nvim_lsp_diagnostic(diag_type)
         local count = 0
 
         for _, client in ipairs(active_clients) do
-            count = count + vim.tbl_count(vim.diagnostic.get(client.id, {severity = diag_type}))
+            count = count + vim.tbl_count(vim.diagnostic.get(vim.api.nvim_get_current_buf(), {severity = diag_type}))
             -- Fix as get_count was deprecated in 0.6.1
             -- lsp.diagnostic.get_count(api.nvim_get_current_buf(),diag_type,client.id)
         end
