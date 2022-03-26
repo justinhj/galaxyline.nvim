@@ -1,4 +1,4 @@
-local vim, lsp, api = vim, vim.lsp, vim.api
+local vim, lsp = vim, vim.lsp
 local M = {}
 
 -- coc diagnostic
