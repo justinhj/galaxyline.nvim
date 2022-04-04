@@ -25,10 +25,8 @@ end
 -- Unless the user disabled the intro we should ignore the first two events as this
 -- clears the intro screen.
 if is_intro_disabled() then
-    print("disabled")
     ignore_events = 0
 else
-    print("enabled")
     ignore_events = 2
 end
 
