@@ -1,6 +1,7 @@
 local vim = vim
 local uv = vim.loop
 local M = {}
+local ignore_events
 
 M.section = {}
 M.section.left = {}
@@ -11,6 +12,25 @@ M.section.short_line_right = {}
 M.short_line_list = {}
 
 _G.galaxyline_providers = {}
+
+-- Helper function to see if the :intro is enabled
+local function is_intro_disabled()
+    if string.find(vim.o.shortmess, "I") then
+        return true
+    else
+        return false
+    end
+end
+
+-- Unless the user disabled the intro we should ignore the first two events as this
+-- clears the intro screen.
+if is_intro_disabled() then
+    print("disabled")
+    ignore_events = 0
+else
+    print("enabled")
+    ignore_events = 2
+end
 
 do
   if next(_G.galaxyline_providers) == nil then
@@ -213,7 +233,11 @@ async_combin = uv.new_async(vim.schedule_wrap(function()
 end))
 
 function M.load_galaxyline()
-  async_combin:send()
+  if ignore_events > 0 then
+      ignore_events = ignore_events - 1
+  else
+      async_combin:send()
+  end
 end
 
 function M.inactive_galaxyline()
