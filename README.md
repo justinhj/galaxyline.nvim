@@ -1,6 +1,13 @@
 # galaxyline.nvim
 
-_JUSTIN NOTE_ this fork has a bug fix for LSP diagnostics. I think upstream is no longer maintained.
+## justinhj fork info 
+This fork has a bug fix for LSP diagnostics and for intro text disappearing on startup. 
+
+I think upstream is no longer maintained.
+
+Works for NVIM > 0.6.1 including 0.7.+
+
+## Intro
 
 galaxyline is a light-weight and **Super Fast** statusline plugin. Galaxyline
 componentizes Vim's statusline by having a provider for each text area.
